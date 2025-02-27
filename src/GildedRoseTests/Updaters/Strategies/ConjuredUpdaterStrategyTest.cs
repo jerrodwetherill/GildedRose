@@ -1,17 +1,18 @@
 ﻿using Xunit;
 using GildedRoseKata;
 using GildedRoseKata.Updaters;
+using GildedRoseKata.Updaters.Strategies;
 
-namespace GildedRoseTests.Updaters
+namespace GildedRoseTests.Updaters.Strategies
 {
-    public class GenericUpdaterTest
+    public class ConjuredUpdaterStrategyTest
     {
 
         [Fact]
-        public void In_Sellby_Date_Decreases_Quality_By_1()
+        public void In_Sellby_Date_Decreases_Quality_By_2()
         {
             //Arrange
-            var expectedQuality = 9;
+            var expectedQuality = 8;
             var expectedSellin = 4;
 
             var item = new Item()
@@ -21,18 +22,18 @@ namespace GildedRoseTests.Updaters
                 SellIn = 5
             };
 
-            IUpdater genericUpdate = new GenericItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
             Assert.Equal(expectedSellin, item.SellIn);
         }
-      
+
         [Fact]
-        public void In_Sellby_Date_And_Quality_Is_0_Quality_Does_Not_Go_Negative()
+        public void In_Sellby_Date_And_Quality_Is_1_Quality_Does_Not_Go_Negative()
         {
             //Arrange
             var expectedQuality = 0;
@@ -41,14 +42,14 @@ namespace GildedRoseTests.Updaters
             var item = new Item()
             {
                 Name = "test Item",
-                Quality = 0,
+                Quality = 1,
                 SellIn = 5
             };
 
-            IUpdater genericUpdate = new GenericItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -56,10 +57,10 @@ namespace GildedRoseTests.Updaters
         }
 
         [Fact]
-        public void Past_Sellby_Date_Decreases_Quality_By_2()
+        public void Past_Sellby_Date_Decreases_Quality_By_4()
         {
             //Arrange
-            var expectedQuality = 8;
+            var expectedQuality = 6;
             var expectedSellin = -2;
 
             var item = new Item()
@@ -69,10 +70,58 @@ namespace GildedRoseTests.Updaters
                 SellIn = -1
             };
 
-            IUpdater genericUpdate = new GenericItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
+
+            //Assert
+            Assert.Equal(expectedQuality, item.Quality);
+            Assert.Equal(expectedSellin, item.SellIn);
+        }
+
+        [Fact]
+        public void Past_Sellby_Date_And_Quality_Is_3_Quality_Does_Not_Go_Negative()
+        {
+            //Arrange
+            var expectedQuality = 0;
+            var expectedSellin = -2;
+
+            var item = new Item()
+            {
+                Name = "test Item",
+                Quality = 3,
+                SellIn = -1
+            };
+
+            IUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
+
+            //Act
+            var result = genericUpdate.UpdateQuality(item);
+
+            //Assert
+            Assert.Equal(expectedQuality, item.Quality);
+            Assert.Equal(expectedSellin, item.SellIn);
+        }
+
+        [Fact]
+        public void Past_Sellby_Date_And_Quality_Is_2_Quality_Does_Not_Go_Negative()
+        {
+            //Arrange
+            var expectedQuality = 0;
+            var expectedSellin = -2;
+
+            var item = new Item()
+            {
+                Name = "test Item",
+                Quality = 2,
+                SellIn = -1
+            };
+
+            IUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
+
+            //Act
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -93,34 +142,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = -1
             };
 
-            IUpdater genericUpdate = new GenericItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
-
-            //Assert
-            Assert.Equal(expectedQuality, item.Quality);
-            Assert.Equal(expectedSellin, item.SellIn);
-        }
-
-        [Fact]
-        public void Past_Sellby_Date_And_Quality_Is_0_Quality_Does_Not_Go_Negative()
-        {
-            //Arrange
-            var expectedQuality = 0;
-            var expectedSellin = -2;
-
-            var item = new Item()
-            {
-                Name = "test Item",
-                Quality = 0,
-                SellIn = -1
-            };
-
-            IUpdater genericUpdate = new GenericItemUpdater(item);
-
-            //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -128,4 +153,5 @@ namespace GildedRoseTests.Updaters
         }
 
     }
+
 }

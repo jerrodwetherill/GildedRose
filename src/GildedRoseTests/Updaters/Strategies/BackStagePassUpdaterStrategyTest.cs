@@ -1,10 +1,11 @@
 ﻿using Xunit;
 using GildedRoseKata;
 using GildedRoseKata.Updaters;
+using GildedRoseKata.Updaters.Strategies;
 
-namespace GildedRoseTests.Updaters
+namespace GildedRoseTests.Updaters.Strategies
 {
-    public class BackStagePassUpdaterTest
+    public class BackStagePassUpdaterStrategyTest
     {
 
         [Fact]
@@ -21,10 +22,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = 12
             };
 
-            IUpdater genericUpdate = new BackStagePassItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -45,10 +46,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = 12
             };
 
-            IUpdater genericUpdate = new BackStagePassItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -69,10 +70,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = 10
             };
 
-            IUpdater genericUpdate = new BackStagePassItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -93,10 +94,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = 10
             };
 
-            IUpdater genericUpdate = new BackStagePassItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -117,10 +118,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = 1
             };
 
-            IUpdater genericUpdate = new BackStagePassItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -141,10 +142,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = 1
             };
 
-            IUpdater genericUpdate = new BackStagePassItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -165,10 +166,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = 0
             };
 
-            IUpdater genericUpdate = new BackStagePassItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -189,10 +190,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = -1
             };
 
-            IUpdater genericUpdate = new BackStagePassItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);

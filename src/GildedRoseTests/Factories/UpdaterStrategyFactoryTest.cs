@@ -1,18 +1,17 @@
 ﻿using Xunit;
 using GildedRoseKata;
-using GildedRoseKata.Updaters;
 using GildedRoseKata.Factories;
+using GildedRoseKata.Updaters.Strategies;
 
 namespace GildedRoseTests.Factories
 {
-    public class UpdaterFactoryTest
+    public class UpdaterStrategyFactoryTest
     {
-
         [Fact]
         public void Brie_Item_Creates_Correct_Updater()
         {
             //Arrange
-            IUpdaterFactory updaterFactory = new UpdaterFactory();
+            IUpdaterStrategyFactory strategyFactory = new UpdaterStrategyFactory();
 
             var item = new Item()
             {
@@ -22,10 +21,10 @@ namespace GildedRoseTests.Factories
             };
 
             //Act
-            IUpdater genericUpdate = updaterFactory.CreateUpdater(item);
+            IUpdaterStrategy genericUpdate = strategyFactory.CreateUpdater(item);
 
             //Assert
-            Assert.IsType<BrieItemUpdater>(genericUpdate);
+            Assert.IsType<BrieItemUpdaterStrategy>(genericUpdate);
 
         }
 
@@ -33,7 +32,7 @@ namespace GildedRoseTests.Factories
         public void BackStagePass_Item_Creates_Correct_Updater()
         {
             //Arrange
-            IUpdaterFactory updaterFactory = new UpdaterFactory();
+            IUpdaterStrategyFactory strategyFactory = new UpdaterStrategyFactory();
 
             var item = new Item()
             {
@@ -43,10 +42,10 @@ namespace GildedRoseTests.Factories
             };
 
             //Act
-            IUpdater genericUpdate = updaterFactory.CreateUpdater(item);
+            IUpdaterStrategy genericUpdate = strategyFactory.CreateUpdater(item);
 
             //Assert
-            Assert.IsType<BackStagePassItemUpdater>(genericUpdate);
+            Assert.IsType<BackStagePassItemUpdaterStrategy>(genericUpdate);
 
         }
 
@@ -54,7 +53,7 @@ namespace GildedRoseTests.Factories
         public void Sulfuras_Item_Creates_Correct_Updater()
         {
             //Arrange
-            IUpdaterFactory updaterFactory = new UpdaterFactory();
+            IUpdaterStrategyFactory strategyFactory = new UpdaterStrategyFactory();
 
             var item = new Item()
             {
@@ -64,10 +63,10 @@ namespace GildedRoseTests.Factories
             };
 
             //Act
-            IUpdater genericUpdate = updaterFactory.CreateUpdater(item);
+            IUpdaterStrategy genericUpdate = strategyFactory.CreateUpdater(item);
 
             //Assert
-            Assert.IsType<DoNothingItemUpdater>(genericUpdate);
+            Assert.IsType<DoNothingItemUpdaterStrategy>(genericUpdate);
 
         }
 
@@ -75,7 +74,7 @@ namespace GildedRoseTests.Factories
         public void Conjured_Item_Creates_Correct_Updater()
         {
             //Arrange
-            IUpdaterFactory updaterFactory = new UpdaterFactory();
+            IUpdaterStrategyFactory strategyFactory = new UpdaterStrategyFactory();
 
             var item = new Item()
             {
@@ -85,10 +84,10 @@ namespace GildedRoseTests.Factories
             };
 
             //Act
-            IUpdater genericUpdate = updaterFactory.CreateUpdater(item);
+            IUpdaterStrategy genericUpdate = strategyFactory.CreateUpdater(item);
 
             //Assert
-            Assert.IsType<ConjuredItemUpdater>(genericUpdate);
+            Assert.IsType<ConjuredItemUpdaterStrategy>(genericUpdate);
 
         }
 
@@ -96,7 +95,7 @@ namespace GildedRoseTests.Factories
         public void Unknown_Item_Creates_Correct_Updater()
         {
             //Arrange
-            IUpdaterFactory updaterFactory = new UpdaterFactory();
+            IUpdaterStrategyFactory strategyFactory = new UpdaterStrategyFactory();
 
             var item = new Item()
             {
@@ -106,10 +105,10 @@ namespace GildedRoseTests.Factories
             };
 
             //Act
-            IUpdater genericUpdate = updaterFactory.CreateUpdater(item);
+            IUpdaterStrategy genericUpdate = strategyFactory.CreateUpdater(item);
 
             //Assert
-            Assert.IsType<GenericItemUpdater>(genericUpdate);
+            Assert.IsType<GenericItemUpdaterStrategy>(genericUpdate);
 
         }
 

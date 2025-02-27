@@ -1,17 +1,18 @@
 ﻿using Xunit;
 using GildedRoseKata;
 using GildedRoseKata.Updaters;
+using GildedRoseKata.Updaters.Strategies;
 
-namespace GildedRoseTests.Updaters
+namespace GildedRoseTests.Updaters.Strategies
 {
-    public class BrieUpdaterTest
+    public class GenericUpdaterStrategyTest
     {
 
         [Fact]
-        public void In_Sellby_Date_Increases_Quality_By_1()
+        public void In_Sellby_Date_Decreases_Quality_By_1()
         {
             //Arrange
-            var expectedQuality = 11;
+            var expectedQuality = 9;
             var expectedSellin = 4;
 
             var item = new Item()
@@ -21,10 +22,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = 5
             };
 
-            IUpdater genericUpdate = new BrieItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -32,23 +33,23 @@ namespace GildedRoseTests.Updaters
         }
 
         [Fact]
-        public void In_Sellby_Date_And_Quality_Is_50_Quality_Does_Not_Go_Over_50()
+        public void In_Sellby_Date_And_Quality_Is_0_Quality_Does_Not_Go_Negative()
         {
             //Arrange
-            var expectedQuality = 50;
+            var expectedQuality = 0;
             var expectedSellin = 4;
 
             var item = new Item()
             {
                 Name = "test Item",
-                Quality = 50,
+                Quality = 0,
                 SellIn = 5
             };
 
-            IUpdater genericUpdate = new BrieItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -56,10 +57,10 @@ namespace GildedRoseTests.Updaters
         }
 
         [Fact]
-        public void Past_Sellby_Date_Increases_Quality_By_2()
+        public void Past_Sellby_Date_Decreases_Quality_By_2()
         {
             //Arrange
-            var expectedQuality = 12;
+            var expectedQuality = 8;
             var expectedSellin = -2;
 
             var item = new Item()
@@ -69,10 +70,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = -1
             };
 
-            IUpdater genericUpdate = new BrieItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -80,23 +81,23 @@ namespace GildedRoseTests.Updaters
         }
 
         [Fact]
-        public void Past_Sellby_Date_And_Quality_Is_50_Quality_Does_Not_Go_Over_50()
+        public void Past_Sellby_Date_And_Quality_Is_1_Quality_Does_Not_Go_Negative()
         {
             //Arrange
-            var expectedQuality = 50;
+            var expectedQuality = 0;
             var expectedSellin = -2;
 
             var item = new Item()
             {
                 Name = "test Item",
-                Quality = 50,
+                Quality = 1,
                 SellIn = -1
             };
 
-            IUpdater genericUpdate = new BrieItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -104,23 +105,23 @@ namespace GildedRoseTests.Updaters
         }
 
         [Fact]
-        public void Past_Sellby_Date_And_Quality_Is_49_Quality_Does_Not_Go_Over_50()
+        public void Past_Sellby_Date_And_Quality_Is_0_Quality_Does_Not_Go_Negative()
         {
             //Arrange
-            var expectedQuality = 50;
+            var expectedQuality = 0;
             var expectedSellin = -2;
 
             var item = new Item()
             {
                 Name = "test Item",
-                Quality = 49,
+                Quality = 0,
                 SellIn = -1
             };
 
-            IUpdater genericUpdate = new BrieItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -128,5 +129,4 @@ namespace GildedRoseTests.Updaters
         }
 
     }
-
 }

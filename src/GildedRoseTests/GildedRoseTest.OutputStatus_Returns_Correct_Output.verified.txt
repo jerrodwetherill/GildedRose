@@ -1,0 +1,2 @@
+﻿name, sellIn, quality
+foo, 0, 0

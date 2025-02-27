@@ -1,10 +1,11 @@
 ﻿using Xunit;
 using GildedRoseKata;
 using GildedRoseKata.Updaters;
+using GildedRoseKata.Updaters.Strategies;
 
-namespace GildedRoseTests.Updaters
+namespace GildedRoseTests.Updaters.Strategies
 {
-    public class DoNothingUpdaterTest
+    public class DoNothingUpdaterStrategyTest
     {
 
         [Fact]
@@ -21,10 +22,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = 4
             };
 
-            IUpdater genericUpdate = new DoNothingItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new DoNothingItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
@@ -45,10 +46,10 @@ namespace GildedRoseTests.Updaters
                 SellIn = -1
             };
 
-            IUpdater genericUpdate = new DoNothingItemUpdater(item);
+            IUpdaterStrategy genericUpdate = new DoNothingItemUpdaterStrategy();
 
             //Act
-            var result = genericUpdate.UpdateItem();
+            var result = genericUpdate.UpdateQuality(item);
 
             //Assert
             Assert.Equal(expectedQuality, item.Quality);
