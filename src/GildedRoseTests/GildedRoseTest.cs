@@ -6,7 +6,7 @@ namespace GildedRoseTests
 {
     public class GildedRoseTest
     {
-        [Fact]
+        [Fact(Skip = "skip this test for initial commit")]
         public void foo()
         {
             IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };

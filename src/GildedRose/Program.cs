@@ -9,6 +9,18 @@ namespace GildedRoseKata
         {
             Console.WriteLine("OMGHAI!");
 
+            int noDays = 30;
+            if (args.Length != 0 )
+            {
+                if (!int.TryParse(args[0], out noDays))
+                {
+                    Console.WriteLine("Please enter a numeric argument.");
+                    return;
+                }
+
+                noDays = Convert.ToInt32(args[0]);
+            }
+
             IList<Item> Items = new List<Item>{
                 new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
                 new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
@@ -39,7 +51,7 @@ namespace GildedRoseKata
 
             var app = new GildedRose(Items);
 
-            for (var i = 0; i < 31; i++)
+            for (var i = 0; i <= noDays; i++)
             {
                 Console.WriteLine("-------- day " + i + " --------");
                 Console.WriteLine("name, sellIn, quality");
