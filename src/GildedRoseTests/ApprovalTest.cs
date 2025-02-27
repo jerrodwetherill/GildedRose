@@ -53,6 +53,5 @@ namespace GildedRoseTests
             return Verifier.Verify(output);
         }
 
-
     }
 }

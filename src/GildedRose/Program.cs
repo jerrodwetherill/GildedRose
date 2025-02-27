@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GildedRoseKata.Factories;
+using System;
 using System.Collections.Generic;
 
 namespace GildedRoseKata
@@ -48,8 +49,8 @@ namespace GildedRoseKata
 				// this conjured item does not work properly yet
 				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
-
-            var app = new GildedRose(Items); // qualityStrategy
+            
+            var app = new GildedRose(Items, new UpdaterFactory()); 
 
             for (var i = 0; i <= noDays; i++)
             {
