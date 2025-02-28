@@ -1,8 +1,8 @@
 ﻿using Xunit;
-using GildedRoseKata.Strategies;
-using GildedRoseKata.Entities;
+using GildedRoseKata.Items.Strategies;
+using GildedRoseKata.Items.Entities;
 
-namespace GildedRoseTests.Updaters.Strategies
+namespace GildedRoseTests.Items.Strategies
 {
     public class BackStagePassUpdaterStrategyTest
     {

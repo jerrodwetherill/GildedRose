@@ -1,8 +1,8 @@
-﻿using GildedRoseKata.Constants;
-using GildedRoseKata.Entities;
-using GildedRoseKata.Strategies;
+﻿using GildedRoseKata.Items.Constants;
+using GildedRoseKata.Items.Entities;
+using GildedRoseKata.Items.Strategies;
 
-namespace GildedRoseKata.Factories
+namespace GildedRoseKata.Items.Factories
 {
     public class UpdaterStrategyFactory : IUpdaterStrategyFactory
     {

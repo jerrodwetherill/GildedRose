@@ -24,7 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Services\ItemUpdaterServiceTest.OutputStatus_Returns_Correct_Output.verified.txt">
+      <None Update="Items\Services\ItemUpdaterServiceTest.OutputStatus_Returns_Correct_Output.verified.txt">
         <DependentUpon>ItemUpdaterServiceTest.cs</DependentUpon>
       </None>
     </ItemGroup>

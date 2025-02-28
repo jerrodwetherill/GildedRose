@@ -1,5 +1,5 @@
-﻿using GildedRoseKata.Entities;
-using GildedRoseKata.Services;
+﻿using GildedRoseKata.Items.Entities;
+using GildedRoseKata.Items.Services;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,10 +10,10 @@ namespace GildedRoseKata
         IList<Item> Items;
         private readonly IItemUpdaterService _itemUpdaterService;
 
-        public GildedRose(IList<Item> Items, IItemUpdaterService itemUpdaterService)
+        public GildedRose(IList<Item> items, IItemUpdaterService itemUpdaterService)
         {
-            this.Items = Items;
-            this._itemUpdaterService = itemUpdaterService;
+            Items = items;
+            _itemUpdaterService = itemUpdaterService;
         }
 
         public void UpdateQuality()

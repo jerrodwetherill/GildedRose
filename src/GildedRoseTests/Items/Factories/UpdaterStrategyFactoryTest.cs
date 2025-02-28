@@ -1,10 +1,10 @@
 ﻿using Xunit;
-using GildedRoseKata.Factories;
-using GildedRoseKata.Strategies;
-using GildedRoseKata.Constants;
-using GildedRoseKata.Entities;
+using GildedRoseKata.Items.Factories;
+using GildedRoseKata.Items.Constants;
+using GildedRoseKata.Items.Strategies;
+using GildedRoseKata.Items.Entities;
 
-namespace GildedRoseTests.Factories
+namespace GildedRoseTests.Items.Factories
 {
     public class UpdaterStrategyFactoryTest
     {

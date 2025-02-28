@@ -1,6 +1,6 @@
-﻿using GildedRoseKata.Entities;
+﻿using GildedRoseKata.Items.Entities;
 
-namespace GildedRoseKata.Strategies
+namespace GildedRoseKata.Items.Strategies
 {
     public class BackStagePassItemUpdaterStrategy : UpdaterStrategyBase
     {

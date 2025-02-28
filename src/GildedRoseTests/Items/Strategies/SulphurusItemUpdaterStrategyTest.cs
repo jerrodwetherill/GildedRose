@@ -1,10 +1,10 @@
 ﻿using Xunit;
-using GildedRoseKata.Strategies;
-using GildedRoseKata.Entities;
+using GildedRoseKata.Items.Strategies;
+using GildedRoseKata.Items.Entities;
 
-namespace GildedRoseTests.Updaters.Strategies
+namespace GildedRoseTests.Items.Strategies
 {
-    public class DoNothingUpdaterStrategyTest
+    public class SulphurusItemUpdaterStrategyTest
     {
 
         [Fact]
@@ -54,8 +54,5 @@ namespace GildedRoseTests.Updaters.Strategies
             Assert.Equal(expectedQuality, item.Quality);
             Assert.Equal(expectedSellin, item.SellIn);
         }
-
-
     }
-
 }

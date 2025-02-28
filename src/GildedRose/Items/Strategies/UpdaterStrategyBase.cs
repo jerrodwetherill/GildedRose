@@ -1,6 +1,6 @@
-﻿using GildedRoseKata.Entities;
+﻿using GildedRoseKata.Items.Entities;
 
-namespace GildedRoseKata.Strategies
+namespace GildedRoseKata.Items.Strategies
 {
     public abstract class UpdaterStrategyBase : IUpdaterStrategy
     {
@@ -18,6 +18,4 @@ namespace GildedRoseKata.Strategies
             return item;
         }
     }
-
-
 }

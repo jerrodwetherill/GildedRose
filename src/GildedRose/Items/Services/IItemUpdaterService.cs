@@ -1,7 +1,7 @@
-﻿using GildedRoseKata.Entities;
+﻿using GildedRoseKata.Items.Entities;
 using System.Collections.Generic;
 
-namespace GildedRoseKata.Services
+namespace GildedRoseKata.Items.Services
 {
     public interface IItemUpdaterService
     {

@@ -1,6 +1,4 @@
-﻿using GildedRoseKata.Entities;
-
-namespace GildedRoseKata.Constants
+﻿namespace GildedRoseKata.Items.Constants
 {
     public static class ItemNames
     {
@@ -10,6 +8,5 @@ namespace GildedRoseKata.Constants
         public const string SulphurusOfRagnaros = "Sulfuras, Hand of Ragnaros";
         public const string BackstagePass = "Backstage passes to a TAFKAL80ETC concert";
         public const string Conjured = "Conjured Mana Cake";
-
     }
 }

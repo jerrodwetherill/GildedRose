@@ -1,4 +1,4 @@
-﻿namespace GildedRoseKata.Entities
+﻿namespace GildedRoseKata.Items.Entities
 {
     public class Item
     {

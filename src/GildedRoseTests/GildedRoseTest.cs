@@ -4,8 +4,8 @@ using GildedRoseKata;
 using VerifyXunit;
 using System.Threading.Tasks;
 using Moq;
-using GildedRoseKata.Services;
-using GildedRoseKata.Entities;
+using GildedRoseKata.Items.Entities;
+using GildedRoseKata.Items.Services;
 
 namespace GildedRoseTests
 {
