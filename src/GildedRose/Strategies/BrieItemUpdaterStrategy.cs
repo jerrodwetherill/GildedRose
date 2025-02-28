@@ -1,10 +1,11 @@
-﻿namespace GildedRoseKata.Updaters.Strategies
+﻿using GildedRoseKata.Entities;
+
+namespace GildedRoseKata.Strategies
 {
     public class BrieItemUpdaterStrategy : UpdaterStrategyBase
     {
         protected override void UpdateStrategyQuality(Item item)
         {
-
             if (item.Quality < 50)
             {
                 item.Quality++;
@@ -19,8 +20,6 @@
                     item.Quality++;
                 }
             }
-
-
         }
     }
 }

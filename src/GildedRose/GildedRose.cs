@@ -1,5 +1,5 @@
-﻿using GildedRoseKata.Factories;
-using System;
+﻿using GildedRoseKata.Entities;
+using GildedRoseKata.Services;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,21 +8,17 @@ namespace GildedRoseKata
     public class GildedRose
     {
         IList<Item> Items;
-        private readonly IUpdaterStrategyFactory _strategyFactory;
+        private readonly IItemUpdaterService _itemUpdaterService;
 
-        public GildedRose(IList<Item> Items, IUpdaterStrategyFactory strategyFactory)
+        public GildedRose(IList<Item> Items, IItemUpdaterService itemUpdaterService)
         {
             this.Items = Items;
-            this._strategyFactory = strategyFactory;
+            this._itemUpdaterService = itemUpdaterService;
         }
 
         public void UpdateQuality()
-        {            
-            for (var i = 0; i < Items.Count; i++)
-            {
-                var updater = _strategyFactory.CreateUpdater(Items[i]);
-                Items[i] = updater.UpdateQuality(Items[i]);                
-            }
+        {
+            _itemUpdaterService.UpdateQuality(Items);
         }
 
         public string OutputStatus()

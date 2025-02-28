@@ -1,7 +1,6 @@
 ﻿using Xunit;
-using GildedRoseKata;
-using GildedRoseKata.Updaters;
-using GildedRoseKata.Updaters.Strategies;
+using GildedRoseKata.Strategies;
+using GildedRoseKata.Entities;
 
 namespace GildedRoseTests.Updaters.Strategies
 {

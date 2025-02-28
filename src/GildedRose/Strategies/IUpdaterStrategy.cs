@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata.Updaters.Strategies
+﻿using GildedRoseKata.Entities;
+
+namespace GildedRoseKata.Strategies
 {
     public interface IUpdaterStrategy
     {

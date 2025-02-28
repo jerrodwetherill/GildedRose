@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata.Updaters.Strategies
+﻿using GildedRoseKata.Entities;
+
+namespace GildedRoseKata.Strategies
 {
     public class BackStagePassItemUpdaterStrategy : UpdaterStrategyBase
     {
@@ -31,7 +33,6 @@
             {
                 item.Quality = 0;
             }
-
         }
     }
 }

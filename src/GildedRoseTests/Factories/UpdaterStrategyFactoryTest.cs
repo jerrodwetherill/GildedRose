@@ -1,7 +1,8 @@
 ﻿using Xunit;
-using GildedRoseKata;
 using GildedRoseKata.Factories;
-using GildedRoseKata.Updaters.Strategies;
+using GildedRoseKata.Strategies;
+using GildedRoseKata.Constants;
+using GildedRoseKata.Entities;
 
 namespace GildedRoseTests.Factories
 {
@@ -15,13 +16,13 @@ namespace GildedRoseTests.Factories
 
             var item = new Item()
             {
-                Name = "Aged Brie",
+                Name = ItemNames.AgedBrie,
                 Quality = 8,
                 SellIn = 4
             };
 
             //Act
-            IUpdaterStrategy genericUpdate = strategyFactory.CreateUpdater(item);
+            IUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
 
             //Assert
             Assert.IsType<BrieItemUpdaterStrategy>(genericUpdate);
@@ -36,13 +37,13 @@ namespace GildedRoseTests.Factories
 
             var item = new Item()
             {
-                Name = "Backstage passes to a TAFKAL80ETC concert",
+                Name = ItemNames.BackstagePass,
                 Quality = 8,
                 SellIn = 4
             };
 
             //Act
-            IUpdaterStrategy genericUpdate = strategyFactory.CreateUpdater(item);
+            IUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
 
             //Assert
             Assert.IsType<BackStagePassItemUpdaterStrategy>(genericUpdate);
@@ -57,13 +58,13 @@ namespace GildedRoseTests.Factories
 
             var item = new Item()
             {
-                Name = "Sulfuras, Hand of Ragnaros",
+                Name = ItemNames.SulphurusOfRagnaros,
                 Quality = 8,
                 SellIn = 4
             };
 
             //Act
-            IUpdaterStrategy genericUpdate = strategyFactory.CreateUpdater(item);
+            IUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
 
             //Assert
             Assert.IsType<DoNothingItemUpdaterStrategy>(genericUpdate);
@@ -78,13 +79,13 @@ namespace GildedRoseTests.Factories
 
             var item = new Item()
             {
-                Name = "Conjured Mana Cake",
+                Name = ItemNames.Conjured,
                 Quality = 8,
                 SellIn = 4
             };
 
             //Act
-            IUpdaterStrategy genericUpdate = strategyFactory.CreateUpdater(item);
+            IUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
 
             //Assert
             Assert.IsType<ConjuredItemUpdaterStrategy>(genericUpdate);
@@ -105,7 +106,7 @@ namespace GildedRoseTests.Factories
             };
 
             //Act
-            IUpdaterStrategy genericUpdate = strategyFactory.CreateUpdater(item);
+            IUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
 
             //Assert
             Assert.IsType<GenericItemUpdaterStrategy>(genericUpdate);

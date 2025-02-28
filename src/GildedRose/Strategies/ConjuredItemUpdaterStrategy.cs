@@ -1,12 +1,14 @@
-﻿namespace GildedRoseKata.Updaters.Strategies
+﻿using GildedRoseKata.Entities;
+
+namespace GildedRoseKata.Strategies
 {
-    public class GenericItemUpdaterStrategy : UpdaterStrategyBase
+    public class ConjuredItemUpdaterStrategy : UpdaterStrategyBase
     {
         protected override void UpdateStrategyQuality(Item item)
         {
             if (item.Quality > 0)
             {
-                item.Quality--;
+                item.Quality = item.Quality - 2;
             }
 
             item.SellIn--;
@@ -15,10 +17,9 @@
             {
                 if (item.Quality > 0)
                 {
-                    item.Quality--;
+                    item.Quality = item.Quality - 2;
                 }
             }
-
         }
     }
 }

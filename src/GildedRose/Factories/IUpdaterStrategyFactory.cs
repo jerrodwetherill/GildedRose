@@ -1,9 +1,10 @@
-﻿using GildedRoseKata.Updaters.Strategies;
-using System;
+﻿using GildedRoseKata.Entities;
+using GildedRoseKata.Strategies;
+
 namespace GildedRoseKata.Factories
 {
     public interface IUpdaterStrategyFactory
     {
-        public IUpdaterStrategy CreateUpdater(Item item);
+        public IUpdaterStrategy CreateStrategy(Item item);
     }
 }

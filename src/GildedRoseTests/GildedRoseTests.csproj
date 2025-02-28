@@ -23,4 +23,10 @@
         <ProjectReference Include="..\GildedRose\GildedRoseKata.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Services\ItemUpdaterServiceTest.OutputStatus_Returns_Correct_Output.verified.txt">
+        <DependentUpon>ItemUpdaterServiceTest.cs</DependentUpon>
+      </None>
+    </ItemGroup>
+
 </Project>

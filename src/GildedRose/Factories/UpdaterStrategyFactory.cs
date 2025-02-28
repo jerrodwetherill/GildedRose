@@ -1,23 +1,26 @@
-﻿using GildedRoseKata.Updaters.Strategies;
+﻿using GildedRoseKata.Constants;
+using GildedRoseKata.Entities;
+using GildedRoseKata.Strategies;
+
 namespace GildedRoseKata.Factories
 {
     public class UpdaterStrategyFactory : IUpdaterStrategyFactory
     {
-        public IUpdaterStrategy CreateUpdater(Item item)
+        public IUpdaterStrategy CreateStrategy(Item item)
         {
-            if (item.Name == "Aged Brie")
+            if (item.Name == ItemNames.AgedBrie)
             {
                 return new BrieItemUpdaterStrategy();
             }
-            else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+            else if (item.Name == ItemNames.BackstagePass)
             {
                 return new BackStagePassItemUpdaterStrategy();
             }
-            else if (item.Name == "Sulfuras, Hand of Ragnaros")
+            else if (item.Name == ItemNames.SulphurusOfRagnaros)
             {
                 return new DoNothingItemUpdaterStrategy();
             }
-            else if (item.Name == "Conjured Mana Cake")
+            else if (item.Name == ItemNames.Conjured)
             {
                 return new ConjuredItemUpdaterStrategy();
             }
