@@ -2,7 +2,7 @@
 
 namespace GildedRoseKata.Strategies
 {
-    public class DoNothingItemUpdaterStrategy : UpdaterStrategyBase
+    public class SulphurusItemUpdaterStrategy : UpdaterStrategyBase
     {
         protected override void UpdateStrategyQuality(Item item)
         {

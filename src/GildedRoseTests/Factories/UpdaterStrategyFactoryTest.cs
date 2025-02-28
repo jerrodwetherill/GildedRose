@@ -67,7 +67,7 @@ namespace GildedRoseTests.Factories
             IUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
 
             //Assert
-            Assert.IsType<DoNothingItemUpdaterStrategy>(genericUpdate);
+            Assert.IsType<SulphurusItemUpdaterStrategy>(genericUpdate);
 
         }
 

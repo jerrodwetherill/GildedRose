@@ -21,7 +21,7 @@ namespace GildedRoseTests.Updaters.Strategies
                 SellIn = 4
             };
 
-            IUpdaterStrategy genericUpdate = new DoNothingItemUpdaterStrategy();
+            IUpdaterStrategy genericUpdate = new SulphurusItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -45,7 +45,7 @@ namespace GildedRoseTests.Updaters.Strategies
                 SellIn = -1
             };
 
-            IUpdaterStrategy genericUpdate = new DoNothingItemUpdaterStrategy();
+            IUpdaterStrategy genericUpdate = new SulphurusItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);

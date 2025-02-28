@@ -42,7 +42,7 @@ namespace GildedRoseKata
         {
             return new List<Item>
             {
-                new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
+                new Item {Name = ItemNames.DexterityVest, SellIn = 10, Quality = 20},
                 new Item {Name = ItemNames.AgedBrie, SellIn = 2, Quality = 0},
                 new Item {Name = ItemNames.ElixirOfMongoose, SellIn = 5, Quality = 7},
                 new Item {Name = ItemNames.SulphurusOfRagnaros, SellIn = 0, Quality = 80},

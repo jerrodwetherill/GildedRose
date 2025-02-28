@@ -18,7 +18,7 @@ namespace GildedRoseKata.Factories
             }
             else if (item.Name == ItemNames.SulphurusOfRagnaros)
             {
-                return new DoNothingItemUpdaterStrategy();
+                return new SulphurusItemUpdaterStrategy();
             }
             else if (item.Name == ItemNames.Conjured)
             {
