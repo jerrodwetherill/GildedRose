@@ -1,2 +1,0 @@
-﻿OMGHAI!
-Please enter a numeric argument greater than 0.

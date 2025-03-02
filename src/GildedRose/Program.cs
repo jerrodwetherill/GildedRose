@@ -13,31 +13,13 @@ namespace GildedRoseKata
         public static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
-
-            int noDays = 30;
-            if (args.Length != 0 )
-            {
-                if (!int.TryParse(args[0], out noDays))
-                {
-                    Console.WriteLine("Please enter a numeric argument.");
-                    return;
-                }
-
-                noDays = Convert.ToInt32(args[0]);
-
-                if (noDays <= 0)
-                {
-                    Console.WriteLine("Please enter a numeric argument greater than 0.");
-                    return;
-                }
-            }
-
+        
             IList<Item> Items = PopulateItemList();
 
             var itemUpdaterService = new ItemUpdaterService(new UpdaterStrategyFactory());
             var app = new GildedRose(Items, itemUpdaterService);
             
-            for (var i = 0; i <= noDays; i++)
+            for (var i = 0; i < 31; i++)
             {
                 Console.WriteLine("-------- day " + i + " --------");
                 Console.WriteLine(OutputCurrentStatus(app.Inventory));
