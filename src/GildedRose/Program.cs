@@ -4,6 +4,7 @@ using GildedRoseKata.Items.Factories;
 using GildedRoseKata.Items.Services;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace GildedRoseKata
 {
@@ -28,16 +29,29 @@ namespace GildedRoseKata
             IList<Item> Items = PopulateItemList();
 
             var itemUpdaterService = new ItemUpdaterService(new UpdaterStrategyFactory());
-            var app = new GildedRose(Items, itemUpdaterService); 
-
+            var app = new GildedRose(Items, itemUpdaterService);
+            
             for (var i = 0; i <= noDays; i++)
             {
                 Console.WriteLine("-------- day " + i + " --------");
-                Console.WriteLine(app.OutputStatus());
+                Console.WriteLine(OutputCurrentStatus(app.Inventory));
                 app.UpdateQuality();
             }
         }
-    
+
+        private static string OutputCurrentStatus(IList<Item> items)
+        {
+            var itemOutputs = new StringBuilder();
+
+            itemOutputs.AppendLine("name, sellIn, quality");
+            foreach (var item in items)
+            {
+                itemOutputs.AppendLine(item.Name + ", " + item.SellIn + ", " + item.Quality);
+            }
+
+            return itemOutputs.ToString();
+        }
+
         private static IList<Item> PopulateItemList()
         {
             return new List<Item>

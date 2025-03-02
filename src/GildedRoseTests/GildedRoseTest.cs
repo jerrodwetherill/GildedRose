@@ -31,21 +31,6 @@ namespace GildedRoseTests
             //Assert
             itemUpdaterServiceMock.Verify(r => r.UpdateQuality(It.IsAny<List<Item>>()), Times.Exactly(1));
         }
-
-        [Fact]
-        public Task OutputStatus_Returns_Correct_Output()
-        {
-            //Arrange
-            var itemUpdaterServiceMock = new Mock<IItemUpdaterService>();
-            
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
-            var app = new GildedRose(Items, itemUpdaterServiceMock.Object);
-            
-            //Act
-            var output = app.OutputStatus();
-
-            //Assert
-            return Verifier.Verify(output);
-        }
+      
     }
 }

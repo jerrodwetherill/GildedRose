@@ -1,18 +1,27 @@
 ﻿using GildedRoseKata.Items.Entities;
 using GildedRoseKata.Items.Services;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GildedRoseKata
 {
     public class GildedRose
     {
-        IList<Item> Items;
         private readonly IItemUpdaterService _itemUpdaterService;
+
+        IList<Item> Items;
+
+        public IList<Item> Inventory
+        {
+            get
+            {
+                return Items;
+            }
+        }
 
         public GildedRose(IList<Item> items, IItemUpdaterService itemUpdaterService)
         {
-            Items = items;
+            Items = CloneItems(items);
+
             _itemUpdaterService = itemUpdaterService;
         }
 
@@ -20,18 +29,17 @@ namespace GildedRoseKata
         {
             _itemUpdaterService.UpdateQuality(Items);
         }
-
-        public string OutputStatus()
+   
+        private IList<Item> CloneItems(IList<Item> items)
         {
-            var itemOutputs = new StringBuilder();
+            var clonedCopy = new List<Item>();
 
-            itemOutputs.AppendLine("name, sellIn, quality");
-            foreach (var item in Items)
+            foreach (var item in items)
             {
-                itemOutputs.AppendLine(item.Name + ", " + item.SellIn + ", " + item.Quality);
+                clonedCopy.Add(new Item { Name = item.Name, Quality = item.Quality, SellIn = item.SellIn});
             }
 
-            return itemOutputs.ToString();
+            return clonedCopy;
         }
     }
 }
