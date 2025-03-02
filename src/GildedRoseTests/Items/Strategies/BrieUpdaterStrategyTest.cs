@@ -21,7 +21,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 5
             };
 
-            IUpdaterStrategy genericUpdate = new BrieItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BrieItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -45,7 +45,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 5
             };
 
-            IUpdaterStrategy genericUpdate = new BrieItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BrieItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -69,7 +69,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = -1
             };
 
-            IUpdaterStrategy genericUpdate = new BrieItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BrieItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -93,7 +93,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = -1
             };
 
-            IUpdaterStrategy genericUpdate = new BrieItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BrieItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -117,7 +117,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = -1
             };
 
-            IUpdaterStrategy genericUpdate = new BrieItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BrieItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -126,7 +126,6 @@ namespace GildedRoseTests.Items.Strategies
             Assert.Equal(expectedQuality, item.Quality);
             Assert.Equal(expectedSellin, item.SellIn);
         }
-
     }
 
 }

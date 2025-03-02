@@ -2,23 +2,16 @@
 
 namespace GildedRoseKata.Items.Strategies
 {
-    public class BrieItemUpdaterStrategy : UpdaterStrategyBase
+    public class BrieItemUpdaterStrategy : ItemUpdaterStrategyBase
     {
         protected override void UpdateStrategyQuality(Item item)
         {
-            if (item.Quality < 50)
-            {
-                item.Quality++;
-            }
-
-            item.SellIn = item.SellIn - 1;
+            base.IncreaseQuality(item);
+            base.DecreaseSellin(item);
 
             if (item.SellIn < 0)
             {
-                if (item.Quality < 50)
-                {
-                    item.Quality++;
-                }
+                base.IncreaseQuality(item);
             }
         }
     }

@@ -2,7 +2,7 @@
 
 namespace GildedRoseKata.Items.Strategies
 {
-    public class GenericItemUpdaterStrategy : UpdaterStrategyBase
+    public class GenericItemUpdaterStrategy : ItemUpdaterStrategyBase
     {
         protected override void UpdateStrategyQuality(Item item)
         {
@@ -11,7 +11,7 @@ namespace GildedRoseKata.Items.Strategies
                 item.Quality--;
             }
 
-            item.SellIn--;
+            base.DecreaseSellin(item);
 
             if (item.SellIn < 0)
             {

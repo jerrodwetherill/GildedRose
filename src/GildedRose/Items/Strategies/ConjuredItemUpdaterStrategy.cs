@@ -2,23 +2,19 @@
 
 namespace GildedRoseKata.Items.Strategies
 {
-    public class ConjuredItemUpdaterStrategy : UpdaterStrategyBase
+    public class ConjuredItemUpdaterStrategy : ItemUpdaterStrategyBase
     {
         protected override void UpdateStrategyQuality(Item item)
         {
-            if (item.Quality > 0)
-            {
-                item.Quality = item.Quality - 2;
-            }
+            base.DecreaseQuality(item);
+            base.DecreaseQuality(item);
 
-            item.SellIn--;
+            base.DecreaseSellin(item);
 
             if (item.SellIn < 0)
             {
-                if (item.Quality > 0)
-                {
-                    item.Quality = item.Quality - 2;
-                }
+                base.DecreaseQuality(item);
+                base.DecreaseQuality(item);
             }
         }
     }

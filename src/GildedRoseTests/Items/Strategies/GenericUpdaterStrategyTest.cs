@@ -1,6 +1,7 @@
 ﻿using Xunit;
 using GildedRoseKata.Items.Strategies;
 using GildedRoseKata.Items.Entities;
+using static GildedRoseTests.Items.Strategies.BaseItemUpdaterStrategyTest;
 
 namespace GildedRoseTests.Items.Strategies
 {
@@ -21,7 +22,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 5
             };
 
-            IUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -45,7 +46,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 5
             };
 
-            IUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -60,16 +61,16 @@ namespace GildedRoseTests.Items.Strategies
         {
             //Arrange
             var expectedQuality = 8;
-            var expectedSellin = -2;
+            var expectedSellin = -1;
 
             var item = new Item()
             {
                 Name = "test Item",
                 Quality = 10,
-                SellIn = -1
+                SellIn = 0
             };
 
-            IUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -84,16 +85,16 @@ namespace GildedRoseTests.Items.Strategies
         {
             //Arrange
             var expectedQuality = 0;
-            var expectedSellin = -2;
+            var expectedSellin = -1;
 
             var item = new Item()
             {
                 Name = "test Item",
                 Quality = 1,
-                SellIn = -1
+                SellIn = 0
             };
 
-            IUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -108,16 +109,16 @@ namespace GildedRoseTests.Items.Strategies
         {
             //Arrange
             var expectedQuality = 0;
-            var expectedSellin = -2;
-
+            var expectedSellin = -1;
+            
             var item = new Item()
             {
                 Name = "test Item",
                 Quality = 0,
-                SellIn = -1
+                SellIn = 0
             };
 
-            IUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new GenericItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);

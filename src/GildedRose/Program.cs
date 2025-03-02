@@ -24,6 +24,12 @@ namespace GildedRoseKata
                 }
 
                 noDays = Convert.ToInt32(args[0]);
+
+                if (noDays <= 0)
+                {
+                    Console.WriteLine("Please enter a numeric argument greater than 0.");
+                    return;
+                }
             }
 
             IList<Item> Items = PopulateItemList();

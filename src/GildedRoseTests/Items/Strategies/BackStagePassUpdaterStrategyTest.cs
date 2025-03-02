@@ -21,7 +21,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 12
             };
 
-            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -32,7 +32,7 @@ namespace GildedRoseTests.Items.Strategies
         }
 
         [Fact]
-        public void Sellby_Date_Greater_Than_10_Days_Quality_Is_50_Quality_Does_Not_Increase()
+        public void Sellby_Date_Greater_Than_10_Days_Quality_Already_50_Quality_Does_Not_Increase()
         {
             //Arrange
             var expectedQuality = 50;
@@ -45,7 +45,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 12
             };
 
-            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -56,7 +56,7 @@ namespace GildedRoseTests.Items.Strategies
         }
 
         [Fact]
-        public void Sellby_Date_Less_Than_10_Days_But_Greater_Than_5_Increases_Quality_By_2()
+        public void Sellby_Date_Less_Than_Or_Equals_10_Days_But_Greater_Than_5_Increases_Quality_By_2()
         {
             //Arrange
             var expectedQuality = 12;
@@ -69,7 +69,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 10
             };
 
-            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -80,7 +80,7 @@ namespace GildedRoseTests.Items.Strategies
         }
 
         [Fact]
-        public void Sellby_Date_Less_Than_10_Days_But_Greater_Than_5_Quality_Is_49_Quality_Set_To_50()
+        public void Sellby_Date_Less_Than_Or_Equals_10_Days_But_Greater_Than_5_And_Quality_Already_49_Quality_Set_To_50()
         {
             //Arrange
             var expectedQuality = 50;
@@ -93,7 +93,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 10
             };
 
-            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -104,7 +104,7 @@ namespace GildedRoseTests.Items.Strategies
         }
 
         [Fact]
-        public void Sellby_Date_Less_Than_5_Days_But_Greater_Than_0_Increases_Quality_By_3()
+        public void Sellby_Date_Less_Than_Or_Equals_5_Days_But_Greater_Than_0_Increases_Quality_By_3()
         {
             //Arrange
             var expectedQuality = 13;
@@ -117,7 +117,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 1
             };
 
-            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -128,7 +128,7 @@ namespace GildedRoseTests.Items.Strategies
         }
 
         [Fact]
-        public void Sellby_Date_Less_Than_5_Days_But_Greater_Than_0_Quality_Is_49_Quality_Set_To_50()
+        public void Sellby_Date_Less_Than_Or_Equal_5_Days_But_Greater_Than_0_And_Quality_Already_49_Quality_Set_To_50()
         {
             //Arrange
             var expectedQuality = 50;
@@ -141,7 +141,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 1
             };
 
-            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -165,7 +165,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 0
             };
 
-            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -189,7 +189,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = -1
             };
 
-            IUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new BackStagePassItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);

@@ -6,27 +6,20 @@ namespace GildedRoseKata.Items.Factories
 {
     public class UpdaterStrategyFactory : IUpdaterStrategyFactory
     {
-        public IUpdaterStrategy CreateStrategy(Item item)
+        public IItemUpdaterStrategy CreateStrategy(Item item)
         {
-            if (item.Name == ItemNames.AgedBrie)
+            switch (item.Name)
             {
-                return new BrieItemUpdaterStrategy();
-            }
-            else if (item.Name == ItemNames.BackstagePass)
-            {
-                return new BackStagePassItemUpdaterStrategy();
-            }
-            else if (item.Name == ItemNames.SulphurusOfRagnaros)
-            {
-                return new SulphurusItemUpdaterStrategy();
-            }
-            else if (item.Name == ItemNames.Conjured)
-            {
-                return new ConjuredItemUpdaterStrategy();
-            }
-            else
-            {
-                return new GenericItemUpdaterStrategy();
+                case ItemNames.AgedBrie:
+                    return new BrieItemUpdaterStrategy();
+                case ItemNames.BackstagePass:
+                    return new BackStagePassItemUpdaterStrategy();
+                case ItemNames.SulphurusOfRagnaros:
+                    return new LegendaryItemUpdaterStrategy();
+                case ItemNames.Conjured:
+                    return new ConjuredItemUpdaterStrategy();                
+                default:
+                    return new GenericItemUpdaterStrategy();
             }
         }
     }

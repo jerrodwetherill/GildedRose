@@ -4,8 +4,31 @@ using GildedRoseKata.Items.Entities;
 
 namespace GildedRoseTests.Items.Strategies
 {
-    public class SulphurusItemUpdaterStrategyTest
+    public class LegendaryItemUpdaterStrategyTest
     {
+        [Fact]
+        public void Can_Set_Quantity_Above_50()
+        {
+            //Arrange
+            var expectedQuality = 80;
+            var expectedSellin = 4;
+
+            var item = new Item()
+            {
+                Name = "test Item",
+                Quality = 80,
+                SellIn = 4
+            };
+
+            IItemUpdaterStrategy genericUpdate = new LegendaryItemUpdaterStrategy();
+
+            //Act
+            var result = genericUpdate.UpdateQuality(item);
+
+            //Assert
+            Assert.Equal(expectedQuality, item.Quality);
+            Assert.Equal(expectedSellin, item.SellIn);
+        }
 
         [Fact]
         public void In_Sellby_Date_Does_Not_Decrease_SellBy_Or_Quantity()
@@ -21,7 +44,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = 4
             };
 
-            IUpdaterStrategy genericUpdate = new SulphurusItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new LegendaryItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -45,7 +68,7 @@ namespace GildedRoseTests.Items.Strategies
                 SellIn = -1
             };
 
-            IUpdaterStrategy genericUpdate = new SulphurusItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new LegendaryItemUpdaterStrategy();
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -54,5 +77,7 @@ namespace GildedRoseTests.Items.Strategies
             Assert.Equal(expectedQuality, item.Quality);
             Assert.Equal(expectedSellin, item.SellIn);
         }
+    
     }
+
 }

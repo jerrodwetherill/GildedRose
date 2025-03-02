@@ -2,8 +2,8 @@
 
 namespace GildedRoseKata.Items.Strategies
 {
-    public interface IUpdaterStrategy
+    public interface IItemUpdaterStrategy
     {
         public Item UpdateQuality(Item item);
-    }
+    } 
 }

@@ -17,9 +17,14 @@ namespace GildedRoseKata.Items.Services
         {
             for (var i = 0; i < items.Count; i++)
             {
-                var updater = _updaterStrategyFactory.CreateStrategy(items[i]);
-                items[i] = updater.UpdateQuality(items[i]);
+                items[i] = UpdateItem(items[i]);
             }
+        }
+
+        private Item UpdateItem(Item item)
+        {
+            var updater = _updaterStrategyFactory.CreateStrategy(item);
+            return updater.UpdateQuality(item);
         }
     }
 }

@@ -5,6 +5,6 @@ namespace GildedRoseKata.Items.Factories
 {
     public interface IUpdaterStrategyFactory
     {
-        public IUpdaterStrategy CreateStrategy(Item item);
+        public IItemUpdaterStrategy CreateStrategy(Item item);
     }
 }

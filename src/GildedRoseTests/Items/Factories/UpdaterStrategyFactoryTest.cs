@@ -22,7 +22,7 @@ namespace GildedRoseTests.Items.Factories
             };
 
             //Act
-            IUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
+            IItemUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
 
             //Assert
             Assert.IsType<BrieItemUpdaterStrategy>(genericUpdate);
@@ -43,7 +43,7 @@ namespace GildedRoseTests.Items.Factories
             };
 
             //Act
-            IUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
+            IItemUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
 
             //Assert
             Assert.IsType<BackStagePassItemUpdaterStrategy>(genericUpdate);
@@ -51,7 +51,7 @@ namespace GildedRoseTests.Items.Factories
         }
 
         [Fact]
-        public void Sulfuras_Item_Creates_Correct_Updater()
+        public void Sulfuras_Item_Creates_Legendary_Updater()
         {
             //Arrange
             IUpdaterStrategyFactory strategyFactory = new UpdaterStrategyFactory();
@@ -64,10 +64,10 @@ namespace GildedRoseTests.Items.Factories
             };
 
             //Act
-            IUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
+            IItemUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
 
             //Assert
-            Assert.IsType<SulphurusItemUpdaterStrategy>(genericUpdate);
+            Assert.IsType<LegendaryItemUpdaterStrategy>(genericUpdate);
 
         }
 
@@ -85,7 +85,7 @@ namespace GildedRoseTests.Items.Factories
             };
 
             //Act
-            IUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
+            IItemUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
 
             //Assert
             Assert.IsType<ConjuredItemUpdaterStrategy>(genericUpdate);
@@ -106,7 +106,7 @@ namespace GildedRoseTests.Items.Factories
             };
 
             //Act
-            IUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
+            IItemUpdaterStrategy genericUpdate = strategyFactory.CreateStrategy(item);
 
             //Assert
             Assert.IsType<GenericItemUpdaterStrategy>(genericUpdate);

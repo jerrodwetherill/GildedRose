@@ -5,7 +5,6 @@ using GildedRoseKata.Items.Entities;
 using GildedRoseKata.Items.Factories;
 using GildedRoseKata.Items.Strategies;
 using GildedRoseKata.Items.Services;
-using System.Linq;
 
 namespace GildedRoseTests.Items.Services
 {
@@ -41,25 +40,21 @@ namespace GildedRoseTests.Items.Services
             //Arrange
             var strategy = new GenericItemUpdaterStrategy();
 
-            var updaterStrategyFactoryMock = new Mock<IUpdaterStrategyFactory>();
-            updaterStrategyFactoryMock.Setup(r => r.CreateStrategy(It.IsAny<Item>()))
-                .Returns(strategy);
-
             var items = new List<Item> {
                 new Item { Name = "item1", SellIn = 10, Quality = 10 },
                 new Item { Name = "item2", SellIn = 10, Quality = 12 }
             };
 
-            var itemUpdaterService = new ItemUpdaterService(updaterStrategyFactoryMock.Object);
+            var itemUpdaterService = new ItemUpdaterService(new UpdaterStrategyFactory());
 
             //Act
             itemUpdaterService.UpdateQuality(items);
 
             //Assert
-            Assert.Equal(9, items.First().Quality);
-            Assert.Equal(9, items.First().SellIn);
-            Assert.Equal(11, items.Last().Quality);
-            Assert.Equal(9, items.Last().SellIn);
+            Assert.Equal(9, items[0].Quality);
+            Assert.Equal(9, items[0].SellIn);
+            Assert.Equal(11, items[1].Quality);
+            Assert.Equal(9, items[1].SellIn);
         }
     }
 }
