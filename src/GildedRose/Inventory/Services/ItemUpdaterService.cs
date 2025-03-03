@@ -6,9 +6,9 @@ namespace GildedRoseKata.Inventory.Services
 {
     public class ItemUpdaterService : IItemUpdaterService
     {
-        private readonly IUpdaterStrategyFactory _updaterStrategyFactory;
+        private readonly IItemUpdaterStrategyFactory _updaterStrategyFactory;
 
-        public ItemUpdaterService(IUpdaterStrategyFactory updaterStrategyFactory)
+        public ItemUpdaterService(IItemUpdaterStrategyFactory updaterStrategyFactory)
         {
             _updaterStrategyFactory = updaterStrategyFactory;
         }

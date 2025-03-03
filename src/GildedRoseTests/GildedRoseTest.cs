@@ -17,7 +17,7 @@ namespace GildedRoseTests
             //Arrange
             var expectedQuality = 9;
             var expectedSellIn = 9;
-            var updaterStrategyFactory = new UpdaterStrategyFactory();
+            var updaterStrategyFactory = new ItemUpdaterStrategyFactory();
                         
             var Items = new List<Item> {
                 new Item { Name = "item1", SellIn = 10, Quality = 10 }
@@ -39,7 +39,7 @@ namespace GildedRoseTests
             //Arrange
             var expectedQuality = 11;
             var expectedSellIn = 9;
-            var updaterStrategyFactory = new UpdaterStrategyFactory();
+            var updaterStrategyFactory = new ItemUpdaterStrategyFactory();
 
             var Items = new List<Item> {
                 new Item { Name = ItemNames.AgedBrie, SellIn = 10, Quality = 10 }
@@ -61,7 +61,7 @@ namespace GildedRoseTests
             //Arrange
             var expectedQuality = 10;
             var expectedSellIn = 10;
-            var updaterStrategyFactory = new UpdaterStrategyFactory();
+            var updaterStrategyFactory = new ItemUpdaterStrategyFactory();
 
             var Items = new List<Item> {
                 new Item { Name = ItemNames.SulphurusOfRagnaros, SellIn = 10, Quality = 10 }
@@ -83,7 +83,7 @@ namespace GildedRoseTests
             //Arrange
             var expectedQuality = 11;
             var expectedSellIn = 11;
-            var updaterStrategyFactory = new UpdaterStrategyFactory();
+            var updaterStrategyFactory = new ItemUpdaterStrategyFactory();
 
             var Items = new List<Item> {
                 new Item { Name = ItemNames.BackstagePass, SellIn = 12, Quality = 10 }
@@ -105,7 +105,7 @@ namespace GildedRoseTests
             //Arrange
             var expectedQuality = 8;
             var expectedSellIn = 11;
-            var updaterStrategyFactory = new UpdaterStrategyFactory();
+            var updaterStrategyFactory = new ItemUpdaterStrategyFactory();
 
             var Items = new List<Item> {
                 new Item { Name = ItemNames.Conjured, SellIn = 12, Quality = 10 }
