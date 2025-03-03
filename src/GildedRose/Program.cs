@@ -1,7 +1,7 @@
-﻿using GildedRoseKata.Items.Constants;
-using GildedRoseKata.Items.Entities;
-using GildedRoseKata.Items.Factories;
-using GildedRoseKata.Items.Services;
+﻿using GildedRoseKata.Inventory.Constants;
+using GildedRoseKata.Inventory.Entities;
+using GildedRoseKata.Inventory.Factories;
+using GildedRoseKata.Inventory.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;

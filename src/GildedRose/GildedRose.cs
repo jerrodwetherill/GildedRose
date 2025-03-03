@@ -1,5 +1,5 @@
-﻿using GildedRoseKata.Items.Entities;
-using GildedRoseKata.Items.Services;
+﻿using GildedRoseKata.Inventory.Entities;
+using GildedRoseKata.Inventory.Services;
 using System.Collections.Generic;
 
 namespace GildedRoseKata

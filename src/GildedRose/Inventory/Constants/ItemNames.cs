@@ -1,4 +1,4 @@
-﻿namespace GildedRoseKata.Items.Constants
+﻿namespace GildedRoseKata.Inventory.Constants
 {
     public static class ItemNames
     {

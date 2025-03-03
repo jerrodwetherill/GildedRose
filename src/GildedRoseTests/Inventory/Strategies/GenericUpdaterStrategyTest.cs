@@ -1,9 +1,8 @@
 ﻿using Xunit;
-using GildedRoseKata.Items.Strategies;
-using GildedRoseKata.Items.Entities;
-using static GildedRoseTests.Items.Strategies.BaseItemUpdaterStrategyTest;
+using GildedRoseKata.Inventory.Strategies;
+using GildedRoseKata.Inventory.Entities;
 
-namespace GildedRoseTests.Items.Strategies
+namespace GildedRoseTests.Inventory.Strategies
 {
     public class GenericUpdaterStrategyTest
     {
@@ -110,7 +109,7 @@ namespace GildedRoseTests.Items.Strategies
             //Arrange
             var expectedQuality = 0;
             var expectedSellin = -1;
-            
+
             var item = new Item()
             {
                 Name = "test Item",

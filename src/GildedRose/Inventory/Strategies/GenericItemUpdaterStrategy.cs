@@ -1,6 +1,6 @@
-﻿using GildedRoseKata.Items.Entities;
+﻿using GildedRoseKata.Inventory.Entities;
 
-namespace GildedRoseKata.Items.Strategies
+namespace GildedRoseKata.Inventory.Strategies
 {
     public class GenericItemUpdaterStrategy : ItemUpdaterStrategyBase
     {
@@ -11,7 +11,7 @@ namespace GildedRoseKata.Items.Strategies
                 item.Quality--;
             }
 
-            base.DecreaseSellin(item);
+            DecreaseSellin(item);
 
             if (item.SellIn < 0)
             {

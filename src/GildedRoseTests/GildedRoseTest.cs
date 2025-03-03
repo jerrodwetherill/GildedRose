@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using GildedRoseKata;
 using Moq;
-using GildedRoseKata.Items.Entities;
-using GildedRoseKata.Items.Services;
-using GildedRoseKata.Items.Factories;
-using GildedRoseKata.Items.Constants;
+using GildedRoseKata.Inventory.Constants;
+using GildedRoseKata.Inventory.Entities;
+using GildedRoseKata.Inventory.Services;
+using GildedRoseKata.Inventory.Factories;
 
 namespace GildedRoseTests
 {

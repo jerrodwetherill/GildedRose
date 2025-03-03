@@ -1,8 +1,8 @@
 ﻿using Xunit;
-using GildedRoseKata.Items.Strategies;
-using GildedRoseKata.Items.Entities;
+using GildedRoseKata.Inventory.Strategies;
+using GildedRoseKata.Inventory.Entities;
 
-namespace GildedRoseTests.Items.Strategies
+namespace GildedRoseTests.Inventory.Strategies
 {
     public class LegendaryItemUpdaterStrategyTest
     {
@@ -77,7 +77,7 @@ namespace GildedRoseTests.Items.Strategies
             Assert.Equal(expectedQuality, item.Quality);
             Assert.Equal(expectedSellin, item.SellIn);
         }
-    
+
     }
 
 }

@@ -1,8 +1,8 @@
 ﻿using Xunit;
-using GildedRoseKata.Items.Strategies;
-using GildedRoseKata.Items.Entities;
+using GildedRoseKata.Inventory.Strategies;
+using GildedRoseKata.Inventory.Entities;
 
-namespace GildedRoseTests.Items.Strategies
+namespace GildedRoseTests.Inventory.Strategies
 {
     public class ConjuredUpdaterStrategyTest
     {
@@ -44,7 +44,7 @@ namespace GildedRoseTests.Items.Strategies
                 Quality = 1,
                 SellIn = 5
             };
-            
+
             IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
 
             //Act
