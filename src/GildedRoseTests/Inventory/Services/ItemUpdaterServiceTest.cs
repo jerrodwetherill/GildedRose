@@ -16,7 +16,7 @@ namespace GildedRoseTests.Inventory.Services
             //Arrange
             var strategy = new GenericItemUpdaterStrategy();
 
-            var updaterStrategyFactoryMock = new Mock<IUpdaterStrategyFactory>();
+            var updaterStrategyFactoryMock = new Mock<IItemUpdaterStrategyFactory>();
             updaterStrategyFactoryMock.Setup(r => r.CreateStrategy(It.IsAny<Item>()))
                 .Returns(strategy);
 
@@ -45,7 +45,7 @@ namespace GildedRoseTests.Inventory.Services
                 new Item { Name = "item2", SellIn = 10, Quality = 12 }
             };
 
-            var itemUpdaterService = new ItemUpdaterService(new UpdaterStrategyFactory());
+            var itemUpdaterService = new ItemUpdaterService(new ItemUpdaterStrategyFactory());
 
             //Act
             itemUpdaterService.UpdateQuality(items);

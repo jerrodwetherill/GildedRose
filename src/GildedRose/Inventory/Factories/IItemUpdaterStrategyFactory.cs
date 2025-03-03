@@ -3,7 +3,7 @@ using GildedRoseKata.Inventory.Strategies;
 
 namespace GildedRoseKata.Inventory.Factories
 {
-    public interface IUpdaterStrategyFactory
+    public interface IItemUpdaterStrategyFactory
     {
         public IItemUpdaterStrategy CreateStrategy(Item item);
     }

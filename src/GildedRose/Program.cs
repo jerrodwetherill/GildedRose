@@ -16,7 +16,7 @@ namespace GildedRoseKata
         
             IList<Item> Items = PopulateItemList();
 
-            var itemUpdaterService = new ItemUpdaterService(new UpdaterStrategyFactory());
+            var itemUpdaterService = new ItemUpdaterService(new ItemUpdaterStrategyFactory());
             var app = new GildedRose(Items, itemUpdaterService);
             
             for (var i = 0; i < 31; i++)

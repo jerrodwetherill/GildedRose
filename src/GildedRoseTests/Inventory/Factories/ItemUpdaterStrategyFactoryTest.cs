@@ -6,13 +6,13 @@ using GildedRoseKata.Inventory.Entities;
 
 namespace GildedRoseTests.Inventory.Factories
 {
-    public class UpdaterStrategyFactoryTest
+    public class ItemUpdaterStrategyFactoryTest
     {
         [Fact]
         public void Brie_Item_Creates_Correct_Updater()
         {
             //Arrange
-            IUpdaterStrategyFactory strategyFactory = new UpdaterStrategyFactory();
+            IItemUpdaterStrategyFactory strategyFactory = new ItemUpdaterStrategyFactory();
 
             var item = new Item()
             {
@@ -33,7 +33,7 @@ namespace GildedRoseTests.Inventory.Factories
         public void BackStagePass_Item_Creates_Correct_Updater()
         {
             //Arrange
-            IUpdaterStrategyFactory strategyFactory = new UpdaterStrategyFactory();
+            IItemUpdaterStrategyFactory strategyFactory = new ItemUpdaterStrategyFactory();
 
             var item = new Item()
             {
@@ -54,7 +54,7 @@ namespace GildedRoseTests.Inventory.Factories
         public void Sulfuras_Item_Creates_Legendary_Updater()
         {
             //Arrange
-            IUpdaterStrategyFactory strategyFactory = new UpdaterStrategyFactory();
+            IItemUpdaterStrategyFactory strategyFactory = new ItemUpdaterStrategyFactory();
 
             var item = new Item()
             {
@@ -75,7 +75,7 @@ namespace GildedRoseTests.Inventory.Factories
         public void Conjured_Item_Creates_Correct_Updater()
         {
             //Arrange
-            IUpdaterStrategyFactory strategyFactory = new UpdaterStrategyFactory();
+            IItemUpdaterStrategyFactory strategyFactory = new ItemUpdaterStrategyFactory();
 
             var item = new Item()
             {
@@ -96,7 +96,7 @@ namespace GildedRoseTests.Inventory.Factories
         public void Unknown_Item_Creates_Correct_Updater()
         {
             //Arrange
-            IUpdaterStrategyFactory strategyFactory = new UpdaterStrategyFactory();
+            IItemUpdaterStrategyFactory strategyFactory = new ItemUpdaterStrategyFactory();
 
             var item = new Item()
             {
