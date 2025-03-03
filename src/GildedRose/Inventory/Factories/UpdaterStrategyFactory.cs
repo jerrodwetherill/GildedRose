@@ -1,8 +1,8 @@
-﻿using GildedRoseKata.Items.Constants;
-using GildedRoseKata.Items.Entities;
-using GildedRoseKata.Items.Strategies;
+﻿using GildedRoseKata.Inventory.Constants;
+using GildedRoseKata.Inventory.Entities;
+using GildedRoseKata.Inventory.Strategies;
 
-namespace GildedRoseKata.Items.Factories
+namespace GildedRoseKata.Inventory.Factories
 {
     public class UpdaterStrategyFactory : IUpdaterStrategyFactory
     {
@@ -17,7 +17,7 @@ namespace GildedRoseKata.Items.Factories
                 case ItemNames.SulphurusOfRagnaros:
                     return new LegendaryItemUpdaterStrategy();
                 case ItemNames.Conjured:
-                    return new ConjuredItemUpdaterStrategy();                
+                    return new ConjuredItemUpdaterStrategy();
                 default:
                     return new GenericItemUpdaterStrategy();
             }

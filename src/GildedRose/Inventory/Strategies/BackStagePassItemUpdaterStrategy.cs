@@ -1,24 +1,24 @@
-﻿using GildedRoseKata.Items.Entities;
+﻿using GildedRoseKata.Inventory.Entities;
 
-namespace GildedRoseKata.Items.Strategies
+namespace GildedRoseKata.Inventory.Strategies
 {
     public class BackStagePassItemUpdaterStrategy : ItemUpdaterStrategyBase
     {
         protected override void UpdateStrategyQuality(Item item)
         {
-            base.IncreaseQuality(item);
+            IncreaseQuality(item);
 
             if (item.SellIn < 11)
             {
-                base.IncreaseQuality(item);
+                IncreaseQuality(item);
             }
 
             if (item.SellIn < 6)
             {
-                base.IncreaseQuality(item);
+                IncreaseQuality(item);
             }
 
-            base.DecreaseSellin(item);            
+            DecreaseSellin(item);
 
             if (item.SellIn < 0)
             {

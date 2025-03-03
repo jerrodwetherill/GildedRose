@@ -1,6 +1,6 @@
-﻿using GildedRoseKata.Items.Entities;
+﻿using GildedRoseKata.Inventory.Entities;
 
-namespace GildedRoseKata.Items.Strategies
+namespace GildedRoseKata.Inventory.Strategies
 {
     public class LegendaryItemUpdaterStrategy : ItemUpdaterStrategyBase
     {

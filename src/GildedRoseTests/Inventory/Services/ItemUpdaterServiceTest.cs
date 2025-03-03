@@ -1,12 +1,12 @@
 ﻿using Xunit;
 using System.Collections.Generic;
 using Moq;
-using GildedRoseKata.Items.Entities;
-using GildedRoseKata.Items.Factories;
-using GildedRoseKata.Items.Strategies;
-using GildedRoseKata.Items.Services;
+using GildedRoseKata.Inventory.Entities;
+using GildedRoseKata.Inventory.Factories;
+using GildedRoseKata.Inventory.Strategies;
+using GildedRoseKata.Inventory.Services;
 
-namespace GildedRoseTests.Items.Services
+namespace GildedRoseTests.Inventory.Services
 {
     public class ItemUpdaterServiceTest
     {

@@ -1,17 +1,17 @@
-﻿using GildedRoseKata.Items.Entities;
+﻿using GildedRoseKata.Inventory.Entities;
 
-namespace GildedRoseKata.Items.Strategies
+namespace GildedRoseKata.Inventory.Strategies
 {
     public class BrieItemUpdaterStrategy : ItemUpdaterStrategyBase
     {
         protected override void UpdateStrategyQuality(Item item)
         {
-            base.IncreaseQuality(item);
-            base.DecreaseSellin(item);
+            IncreaseQuality(item);
+            DecreaseSellin(item);
 
             if (item.SellIn < 0)
             {
-                base.IncreaseQuality(item);
+                IncreaseQuality(item);
             }
         }
     }

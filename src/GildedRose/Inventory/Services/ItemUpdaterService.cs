@@ -1,8 +1,8 @@
-﻿using GildedRoseKata.Items.Entities;
-using GildedRoseKata.Items.Factories;
+﻿using GildedRoseKata.Inventory.Entities;
+using GildedRoseKata.Inventory.Factories;
 using System.Collections.Generic;
 
-namespace GildedRoseKata.Items.Services
+namespace GildedRoseKata.Inventory.Services
 {
     public class ItemUpdaterService : IItemUpdaterService
     {

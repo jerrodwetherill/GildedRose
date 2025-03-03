@@ -1,9 +1,9 @@
 ﻿using Xunit;
-using GildedRoseKata.Items.Strategies;
-using GildedRoseKata.Items.Entities;
 using System;
+using GildedRoseKata.Inventory.Entities;
+using GildedRoseKata.Inventory.Strategies;
 
-namespace GildedRoseTests.Items.Strategies
+namespace GildedRoseTests.Inventory.Strategies
 {
 
     public class BaseItemUpdaterStrategyTest
@@ -12,10 +12,10 @@ namespace GildedRoseTests.Items.Strategies
         {
             protected override void UpdateStrategyQuality(Item item)
             {
-                
+
             }
         }
-        
+
         [Fact]
         public void Quality_Set_To_Negative_UpdateQuality_Throws_Error()
         {
@@ -33,7 +33,7 @@ namespace GildedRoseTests.Items.Strategies
             IItemUpdaterStrategy genericUpdate = new TestItemUpdaterStrategyBase();
 
             //Assert
-            Assert.Throws<System.Exception>(() => genericUpdate.UpdateQuality(item));
+            Assert.Throws<Exception>(() => genericUpdate.UpdateQuality(item));
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace GildedRoseTests.Items.Strategies
             IItemUpdaterStrategy genericUpdate = new TestItemUpdaterStrategyBase();
 
             //Assert
-            Assert.Throws<System.Exception>(() => genericUpdate.UpdateQuality(item));
+            Assert.Throws<Exception>(() => genericUpdate.UpdateQuality(item));
         }
 
         [Fact]

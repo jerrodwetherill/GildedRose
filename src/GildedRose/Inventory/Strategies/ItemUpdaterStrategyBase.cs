@@ -1,7 +1,7 @@
-﻿using GildedRoseKata.Items.Entities;
+﻿using GildedRoseKata.Inventory.Entities;
 using System;
 
-namespace GildedRoseKata.Items.Strategies
+namespace GildedRoseKata.Inventory.Strategies
 {
     public abstract class ItemUpdaterStrategyBase : IItemUpdaterStrategy
     {
@@ -22,7 +22,7 @@ namespace GildedRoseKata.Items.Strategies
                 throw new Exception("Quality cannot be negative");
             }
 
-            if (this.GetType() != typeof(LegendaryItemUpdaterStrategy))
+            if (GetType() != typeof(LegendaryItemUpdaterStrategy))
             {
                 if (item.Quality > 50)
                 {
@@ -38,7 +38,7 @@ namespace GildedRoseKata.Items.Strategies
                 item.Quality = item.Quality + 1;
             }
         }
-        
+
         protected void DecreaseQuality(Item item)
         {
             if (item.Quality > 0)

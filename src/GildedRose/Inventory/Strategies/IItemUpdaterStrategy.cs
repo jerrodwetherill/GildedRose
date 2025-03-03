@@ -1,9 +1,9 @@
-﻿using GildedRoseKata.Items.Entities;
+﻿using GildedRoseKata.Inventory.Entities;
 
-namespace GildedRoseKata.Items.Strategies
+namespace GildedRoseKata.Inventory.Strategies
 {
     public interface IItemUpdaterStrategy
     {
         public Item UpdateQuality(Item item);
-    } 
+    }
 }
