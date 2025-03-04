@@ -5,6 +5,7 @@ using GildedRoseKata.Inventory.Entities;
 using GildedRoseKata.Inventory.Factories;
 using GildedRoseKata.Inventory.Strategies;
 using GildedRoseKata.Inventory.Services;
+using GildedRoseTests.Inventory.Validators;
 
 namespace GildedRoseTests.Inventory.Services
 {
@@ -14,7 +15,7 @@ namespace GildedRoseTests.Inventory.Services
         public void UpdateQuality_Calls_UpdaterStrategyFactory_CreateStrategy_Correct_Number_Of_Times()
         {
             //Arrange
-            var strategy = new GenericItemUpdaterStrategy();
+            var strategy = new GenericItemUpdaterStrategy(new DefaultItemValidator());
 
             var updaterStrategyFactoryMock = new Mock<IItemUpdaterStrategyFactory>();
             updaterStrategyFactoryMock.Setup(r => r.CreateStrategy(It.IsAny<Item>()))
@@ -38,7 +39,7 @@ namespace GildedRoseTests.Inventory.Services
         public void UpdateQuality_Updates_All_Items()
         {
             //Arrange
-            var strategy = new GenericItemUpdaterStrategy();
+            var strategy = new GenericItemUpdaterStrategy(new DefaultItemValidator());
 
             var items = new List<Item> {
                 new Item { Name = "item1", SellIn = 10, Quality = 10 },

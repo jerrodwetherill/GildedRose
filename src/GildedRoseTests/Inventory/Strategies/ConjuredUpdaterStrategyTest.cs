@@ -1,6 +1,7 @@
 ﻿using Xunit;
 using GildedRoseKata.Inventory.Strategies;
 using GildedRoseKata.Inventory.Entities;
+using GildedRoseTests.Inventory.Validators;
 
 namespace GildedRoseTests.Inventory.Strategies
 {
@@ -21,7 +22,7 @@ namespace GildedRoseTests.Inventory.Strategies
                 SellIn = 5
             };
 
-            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy(new DefaultItemValidator());
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -45,7 +46,7 @@ namespace GildedRoseTests.Inventory.Strategies
                 SellIn = 5
             };
 
-            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy(new DefaultItemValidator());
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -69,7 +70,7 @@ namespace GildedRoseTests.Inventory.Strategies
                 SellIn = -1
             };
 
-            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy(new DefaultItemValidator());
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -93,7 +94,7 @@ namespace GildedRoseTests.Inventory.Strategies
                 SellIn = -1
             };
 
-            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy(new DefaultItemValidator());
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -117,7 +118,7 @@ namespace GildedRoseTests.Inventory.Strategies
                 SellIn = -1
             };
 
-            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy(new DefaultItemValidator());
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
@@ -141,7 +142,7 @@ namespace GildedRoseTests.Inventory.Strategies
                 SellIn = -1
             };
 
-            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy();
+            IItemUpdaterStrategy genericUpdate = new ConjuredItemUpdaterStrategy(new DefaultItemValidator());
 
             //Act
             var result = genericUpdate.UpdateQuality(item);
