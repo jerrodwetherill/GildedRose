@@ -1,7 +1,8 @@
 ﻿using Xunit;
-using System;
 using GildedRoseKata.Inventory.Entities;
 using GildedRoseKata.Inventory.Strategies;
+using Moq;
+using GildedRoseTests.Inventory.Validators;
 
 namespace GildedRoseTests.Inventory.Strategies
 {
@@ -10,6 +11,11 @@ namespace GildedRoseTests.Inventory.Strategies
     {
         private class TestItemUpdaterStrategyBase : ItemUpdaterStrategyBase
         {
+            public TestItemUpdaterStrategyBase(IItemValidator validator) : base(validator)
+            {
+
+            }
+
             protected override void UpdateStrategyQuality(Item item)
             {
 
@@ -17,85 +23,26 @@ namespace GildedRoseTests.Inventory.Strategies
         }
 
         [Fact]
-        public void Quality_Set_To_Negative_UpdateQuality_Throws_Error()
+        public void UpdateQuality_Calls_ItemValidator_Validate_Correct_Number_Of_Times()
         {
             //Arrange
-            var expectedQuality = 80;
-            var expectedSellin = 4;
+            var _itemValidatorMock = new Mock<IItemValidator>();
+            _itemValidatorMock.Setup(r => r.Validate(It.IsAny<Item>()));
 
+            var strategy = new TestItemUpdaterStrategyBase(_itemValidatorMock.Object);
+            
             var item = new Item()
             {
                 Name = "test Item",
-                Quality = -1,
-                SellIn = 4
+                Quality = 10,
+                SellIn = 12
             };
 
-            IItemUpdaterStrategy genericUpdate = new TestItemUpdaterStrategyBase();
+            //Act
+            strategy.UpdateQuality(item);
 
             //Assert
-            Assert.Throws<Exception>(() => genericUpdate.UpdateQuality(item));
-        }
-
-        [Fact]
-        public void Quality_Set_To_Negative_UpdateQuality_Error_Message_Is_Set()
-        {
-            //Arrange
-            var expectedQuality = 80;
-            var expectedSellin = 4;
-
-            var item = new Item()
-            {
-                Name = "test Item",
-                Quality = -1,
-                SellIn = 4
-            };
-
-            IItemUpdaterStrategy genericUpdate = new TestItemUpdaterStrategyBase();
-
-            //Assert
-            var exception = Assert.Throws<Exception>(() => genericUpdate.UpdateQuality(item));
-            Assert.Equal("Quality cannot be negative", exception.Message);
-        }
-
-        [Fact]
-        public void Quality_Set_To_Above_50_UpdateQuality_Throws_Error()
-        {
-            //Arrange
-            var expectedQuality = 80;
-            var expectedSellin = 4;
-
-            var item = new Item()
-            {
-                Name = "test Item",
-                Quality = 80,
-                SellIn = 4
-            };
-
-            IItemUpdaterStrategy genericUpdate = new TestItemUpdaterStrategyBase();
-
-            //Assert
-            Assert.Throws<Exception>(() => genericUpdate.UpdateQuality(item));
-        }
-
-        [Fact]
-        public void Quality_Set_To_Above_50_UpdateQuality_Error_Message_Is_Set()
-        {
-            //Arrange
-            var expectedQuality = 80;
-            var expectedSellin = 4;
-
-            var item = new Item()
-            {
-                Name = "test Item",
-                Quality = 80,
-                SellIn = 4
-            };
-
-            IItemUpdaterStrategy genericUpdate = new TestItemUpdaterStrategyBase();
-
-            //Assert
-            var exception = Assert.Throws<Exception>(() => genericUpdate.UpdateQuality(item));
-            Assert.Equal("Quality cannot be more than 50 for non legendary items", exception.Message);
+            _itemValidatorMock.Verify(r => r.Validate(It.IsAny<Item>()), Times.Exactly(1));
         }
     }
 }

@@ -1,34 +1,27 @@
 ﻿using GildedRoseKata.Inventory.Entities;
+using GildedRoseTests.Inventory.Validators;
 using System;
 
 namespace GildedRoseKata.Inventory.Strategies
 {
     public abstract class ItemUpdaterStrategyBase : IItemUpdaterStrategy
     {
+        private readonly IItemValidator _itemValidator;
+
+        public ItemUpdaterStrategyBase(IItemValidator itemValidator)
+        {
+            _itemValidator = itemValidator;
+        }
+        
+
         protected abstract void UpdateStrategyQuality(Item item);
 
         public Item UpdateQuality(Item item)
         {
             UpdateStrategyQuality(item);
-            Validate(item);
+            _itemValidator.Validate(item);
 
             return item;
-        }
-
-        private void Validate(Item item)
-        {
-            if (item.Quality < 0)
-            {
-                throw new Exception("Quality cannot be negative");
-            }
-
-            if (GetType() != typeof(LegendaryItemUpdaterStrategy))
-            {
-                if (item.Quality > 50)
-                {
-                    throw new Exception("Quality cannot be more than 50 for non legendary items");
-                }
-            }
         }
 
         protected void IncreaseQuality(Item item)
